@@ -69,9 +69,9 @@ public class RestaurantsAdapter extends RecyclerView.Adapter<RestaurantsAdapter.
         ImageView rest_image;
         public RestaurantsViewHolder(@NonNull View itemView) {
             super(itemView);
-            rest_name = (TextView) itemView.findViewById(R.id.rest_name);
+            rest_name = (TextView) itemView.findViewById(R.id.cart_name);
             rest_address = (TextView) itemView.findViewById(R.id.restaurant_address);
-            rest_description = (TextView) itemView.findViewById(R.id.rest_description);
+            rest_description = (TextView) itemView.findViewById(R.id.cart_price);
             rest_phone = (TextView) itemView.findViewById(R.id.rest_phone);
             rest_image = (ImageView) itemView.findViewById(R.id.restaurant_image);
         }
