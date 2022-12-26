@@ -34,10 +34,10 @@ public class MealsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_meals);
 
-        rest_name_tv = (TextView) findViewById(R.id.cart_name);
+        rest_name_tv = (TextView) findViewById(R.id.rest_name);
         rest_address_tv = (TextView) findViewById(R.id.rest_address);
         rest_phone_tv = (TextView) findViewById(R.id.rest_phone);
-        rest_description_tv = (TextView) findViewById(R.id.cart_price);
+        rest_description_tv = (TextView) findViewById(R.id.rest_description);
         rest_image_iv = (ImageView) findViewById(R.id.rest_image);
 
         intent = getIntent();

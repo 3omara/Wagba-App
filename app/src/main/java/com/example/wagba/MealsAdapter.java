@@ -40,7 +40,19 @@ public class MealsAdapter extends RecyclerView.Adapter<MealsAdapter.MealsViewHol
         String price = mealModel.getPrice() + " " + "EGP";
         holder.price.setText(price);
         holder.name.setText(mealModel.getName());
+
+        holder.addToCart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //////////////////////// Add To Cart /////////////////////////
+            }
+        });
+
         holder.availability.setText(mealModel.getAvailability());
+        if(mealModel.getAvailability().equals("Not Available")){
+            holder.availability.setTextColor(context.getResources().getColor(R.color.red));
+            holder.addToCart.setEnabled(false);
+        }
 
         Picasso.Builder builder = new Picasso.Builder(context);
         builder.downloader(new OkHttp3Downloader(context));

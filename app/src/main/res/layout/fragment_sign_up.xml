@@ -4,16 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/container"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingLeft="@dimen/fragment_horizontal_margin"
-    android:paddingTop="@dimen/fragment_vertical_margin"
-    android:paddingRight="@dimen/fragment_horizontal_margin"
-    android:paddingBottom="@dimen/fragment_vertical_margin"
+    android:layout_height="wrap_content"
     android:background="@color/white">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:background="@color/my_white"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -22,11 +18,11 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <EditText
-            android:id="@+id/username"
+            android:id="@+id/signup_username"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
-            android:layout_marginTop="0dp"
+            android:layout_marginTop="30dp"
             android:layout_marginEnd="24dp"
             android:hint="@string/username"
             android:inputType="textPersonName"
@@ -34,11 +30,11 @@
             android:textSize="20sp" />
 
         <EditText
-            android:id="@+id/email"
+            android:id="@+id/signup_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
             android:layout_marginEnd="24dp"
             android:hint="@string/prompt_email"
             android:inputType="textEmailAddress"
@@ -46,11 +42,11 @@
             android:textSize="20sp" />
 
         <EditText
-            android:id="@+id/password"
+            android:id="@+id/signup_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
             android:layout_marginEnd="24dp"
             android:hint="@string/prompt_password"
             android:imeActionLabel="@string/action_sign_up_short"
@@ -60,32 +56,44 @@
             android:textSize="20sp" />
 
         <Button
-            android:id="@+id/signin"
+            android:id="@+id/register_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="start"
-            android:layout_marginStart="48dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="48dp"
-            android:layout_marginBottom="64dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="20dp"
             android:alpha="0.75"
             android:backgroundTint="@color/teal_200"
-            android:enabled="false"
-            android:padding="8dp"
+            android:padding="10dp"
             android:text="@string/action_sign_up_short"
             android:textColor="#FFFCFC"
-            android:textSize="20sp" />
+            android:textSize="24sp" />
 
-        <ProgressBar
-            android:id="@+id/loading"
+        <TextView
+            android:id="@+id/already_registered"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="64dp"
-            android:layout_marginEnd="32dp"
-            android:layout_marginBottom="64dp"
-            android:visibility="gone" />
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="40dp"
+            android:gravity="end"
+            android:text="@string/already_registered"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
     </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/signup_progressBar"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

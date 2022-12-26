@@ -14,15 +14,6 @@
         android:layout_weight="1"
         android:orientation="vertical">
 
-        <androidx.appcompat.widget.SearchView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            app:iconifiedByDefault="false"
-            app:queryHint="@string/find_cart">
-
-        </androidx.appcompat.widget.SearchView>
-
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -163,7 +154,7 @@
         </com.google.android.material.button.MaterialButtonToggleGroup>
 
         <Button
-            android:id="@+id/signin"
+            android:id="@+id/signup_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="start"

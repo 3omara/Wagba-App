@@ -6,8 +6,12 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 public class MainActivity extends AppCompatActivity {
     private Fragment signOptionsFragment = new SignOptionsFragment();
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onResume() {
@@ -19,8 +23,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         replaceFragment(signOptionsFragment);
+        mAuth = FirebaseAuth.getInstance();
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+//        updateUI(currentUser);
+    }
 
     private void replaceFragment(Fragment fragment){
         if(fragment!=null){

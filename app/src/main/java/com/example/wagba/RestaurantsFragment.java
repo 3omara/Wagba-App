@@ -62,12 +62,11 @@ public class RestaurantsFragment extends Fragment {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for(DataSnapshot dataSnapshot: snapshot.getChildren()){
-                    GenericTypeIndicator<HashMap<String, MealModel>> t = new GenericTypeIndicator<HashMap<String, MealModel>>() {};
-                    HashMap<String, MealModel> meals = dataSnapshot.child("meals").getValue(t);
-                    Log.i("meals", "onDataChange: " + meals.get("meal1").name);
+//                    GenericTypeIndicator<HashMap<String, MealModel>> t = new GenericTypeIndicator<HashMap<String, MealModel>>() {};
+//                    HashMap<String, MealModel> meals = dataSnapshot.child("meals").getValue(t);
+
                     RestaurantModel restaurantModel = dataSnapshot.getValue(RestaurantModel.class);
-                    restaurantModel.setMeals(meals);
-                    Log.i("meals", "onDataChange: "+restaurantModel.getMeals());
+
                     restaurantModels.add(restaurantModel);
                 }
                 restaurantsAdapter.notifyDataSetChanged();

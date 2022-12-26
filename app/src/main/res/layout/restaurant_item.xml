@@ -36,10 +36,11 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/cart_name"
+                    android:id="@+id/restaurant_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/dummy_rest_name"
+                    android:singleLine="true"
                     android:textColor="@color/black"
                     android:textSize="22sp" />
 
@@ -64,7 +65,7 @@
                             app:srcCompat="@drawable/call_icon" />
 
                         <TextView
-                            android:id="@+id/rest_phone"
+                            android:id="@+id/restaurant_phone"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="300"
@@ -99,7 +100,7 @@
                 </LinearLayout>
 
                 <TextView
-                    android:id="@+id/cart_price"
+                    android:id="@+id/restaurant_description"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="5dp"

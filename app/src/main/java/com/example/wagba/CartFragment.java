@@ -10,9 +10,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 
 public class CartFragment extends Fragment {
 
+    private FirebaseAuth mAuth;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -29,7 +33,7 @@ public class CartFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
+        mAuth = FirebaseAuth.getInstance();
 //        int colorFrom = getResources().getColor(R.color.red);
 //        int colorTo = getResources().getColor(R.color.blue);
 //        ValueAnimator colorAnimation = ValueAnimator.ofObject(new ArgbEvaluator(), colorFrom, colorTo);
@@ -43,6 +47,8 @@ public class CartFragment extends Fragment {
 //
 //        });
 //        colorAnimation.start();
+
+        FirebaseUser user = mAuth.getCurrentUser();
 
     }
 }
