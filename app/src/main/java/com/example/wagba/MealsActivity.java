@@ -3,6 +3,7 @@ package com.example.wagba;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 import androidx.cardview.widget.CardView;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
@@ -11,12 +12,15 @@ import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.squareup.picasso.OkHttp3Downloader;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.concurrent.atomic.AtomicReference;
 
 public class MealsActivity extends AppCompatActivity {
 
@@ -29,6 +33,11 @@ public class MealsActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     Intent intent;
 
+    private UserViewModel userViewModel;
+    private FirebaseUser user;
+    private FirebaseAuth mAuth;
+    private ArrayList<Cart> carts;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +48,15 @@ public class MealsActivity extends AppCompatActivity {
         rest_phone_tv = (TextView) findViewById(R.id.rest_phone);
         rest_description_tv = (TextView) findViewById(R.id.rest_description);
         rest_image_iv = (ImageView) findViewById(R.id.rest_image);
+
+        /////////////////////////
+        mAuth = FirebaseAuth.getInstance();
+        user = mAuth.getCurrentUser();
+        String userID = user.getUid();
+
+        userViewModel = new ViewModelProvider(this).get(UserViewModel.class);
+        carts = new ArrayList<Cart>();
+        ////////////////////////
 
         intent = getIntent();
         String restaurantName = intent.getStringExtra("restaurantName");
@@ -65,8 +83,31 @@ public class MealsActivity extends AppCompatActivity {
         recyclerView = (RecyclerView) findViewById(R.id.mealList);
         recyclerView.setHasFixedSize(true);
 
-        mealsAdapter = new MealsAdapter(this, mealsList);
+        userViewModel = new ViewModelProvider(this).get(UserViewModel.class);
+
+        mealsAdapter = new MealsAdapter(this, mealsList, restaurantName, userID, this);
         recyclerView.setAdapter(mealsAdapter);
+
+        AtomicReference<Boolean> exists = new AtomicReference<>(Boolean.FALSE);
+        AtomicReference<Long> cartID = new AtomicReference<>();
+
+        userViewModel.getUserCarts(userID).observe(this, userCarts->{
+
+            for (Integer i = 0; i < userCarts.carts.size(); i++) {
+                if (userCarts.carts.get(i).getCartName().equals(restaurantName + "'s Cart")) {
+                    cartID.set(userCarts.carts.get(i).getCartID());
+                    exists.set(Boolean.TRUE);
+                }
+            }
+            if(exists.get()){
+                userViewModel.getCartItems(cartID.get()).observe(this, cartWithCartItems -> {
+                    mealsAdapter.setCartWithCartItems(cartWithCartItems);
+                    mealsAdapter.setCartExists(exists.get());
+                });
+            }
+        });
+
+
 
     }
 }

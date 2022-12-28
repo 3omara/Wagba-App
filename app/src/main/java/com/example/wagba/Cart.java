@@ -5,13 +5,15 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "cart_table")
-public class Cart {
+import java.io.Serializable;
 
-    @PrimaryKey
-    @NonNull
+@Entity(tableName = "cart_table")
+public class Cart implements Serializable {
+
+    @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "cartID")
-    private String cartID;
+    @NonNull
+    private long cartID;
 
     @ColumnInfo(name = "userID")
     @NonNull
@@ -23,16 +25,16 @@ public class Cart {
 
     @ColumnInfo(name = "itemCount")
     @NonNull
-    private String itemCount;
+    private Integer itemCount;
 
     @ColumnInfo(name = "cartCost")
     @NonNull
-    private String cartCost;
+    private Float cartCost;
 
     //    @ColumnInfo(name = "orderID")
     //    private String orderID;
 
-    public Cart(@NonNull String cartID, @NonNull String userID, @NonNull String cartName, @NonNull String itemCount, @NonNull String cartCost) {
+    public Cart(@NonNull long cartID, @NonNull String userID, @NonNull String cartName, @NonNull Integer itemCount, @NonNull Float cartCost) {
         this.cartID = cartID;
         this.userID = userID;
         this.cartName = cartName;
@@ -51,18 +53,26 @@ public class Cart {
     }
 
     @NonNull
-    public String getItemCount() {
+    public Integer getItemCount() {
         return itemCount;
     }
 
     @NonNull
-    public String getCartCost() {
+    public Float getCartCost() {
         return cartCost;
     }
 
 
     @NonNull
-    public String getCartID() {
+    public long getCartID() {
         return cartID;
+    }
+
+    public void setItemCount(@NonNull Integer itemCount) {
+        this.itemCount = itemCount;
+    }
+
+    public void setCartCost(@NonNull Float cartCost) {
+        this.cartCost = cartCost;
     }
 }

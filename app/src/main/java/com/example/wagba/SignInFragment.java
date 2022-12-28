@@ -94,6 +94,7 @@ public class SignInFragment extends Fragment implements View.OnClickListener {
         getActivity().startActivity(intent);
     }
 
+
     @Override
     public void onClick(View view) {
         switch (view.getId()){

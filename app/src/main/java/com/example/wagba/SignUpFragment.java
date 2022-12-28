@@ -94,7 +94,7 @@ public class SignUpFragment extends Fragment implements View.OnClickListener {
                 String userID = mAuth.getCurrentUser().getUid();
                 Log.i("TAG", "onComplete: "+userID);
                 User user = new User(userID, username);
-                userViewModel.insert(user);
+                userViewModel.insertUser(user);
 
                 if(task.isSuccessful()){
                     progressBar.setVisibility(View.GONE);

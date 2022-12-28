@@ -10,8 +10,8 @@ import java.util.ArrayList;
 @Entity(tableName = "user_table")
 public class User {
     @PrimaryKey
-    @NonNull
     @ColumnInfo(name = "userID")
+    @NonNull
     private String userID;
 
     @ColumnInfo(name = "username")
