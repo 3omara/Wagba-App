@@ -20,7 +20,7 @@ import java.util.ArrayList;
 public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder>{
 
     Context context;
-    ArrayList<Cart> carts = new ArrayList<>();
+    ArrayList<CartWithCartItems> carts = new ArrayList<>();
 
     public CartAdapter(Context context) {
         this.context = context;
@@ -35,7 +35,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull CartAdapter.CartViewHolder holder, int position) {
-        Cart cart = carts.get(position);
+        Cart cart = carts.get(position).cart;
 
         DecimalFormat format = new DecimalFormat("#.00");
         String price = format.format(cart.getCartCost());
@@ -51,7 +51,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
             @Override
             public void onClick(View view) {
                 Intent goToCartItems = new Intent(context, CartActivity.class);
-                goToCartItems.putExtra("cart", cart);
+                goToCartItems.putExtra("cart", carts.get(holder.getAdapterPosition()).cart);
                 context.startActivity(goToCartItems);
             }
         });
@@ -62,7 +62,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
         return carts.size();
     }
 
-    public void setCarts(ArrayList<Cart> carts) {
+    public void setCartsWithCartItems(ArrayList<CartWithCartItems> carts) {
         this.carts = carts;
         notifyDataSetChanged();
     }

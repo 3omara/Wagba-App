@@ -5,7 +5,9 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -14,18 +16,21 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelStoreOwner;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.button.MaterialButtonToggleGroup;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.squareup.picasso.OkHttp3Downloader;
 import com.squareup.picasso.Picasso;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder> {
 
     private Context context;
     private Cart cart;
-    private ArrayList<CartItem> cartItems = new ArrayList<>();
+    private List<CartItem> cartItems = new ArrayList<>();
 
     private UserViewModel userViewModel;
 
@@ -54,6 +59,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
 
         String itemNum = Integer.toString(cartItem.getItemNum());
         holder.item_count.setText(itemNum);
+
 
         Picasso.Builder builder = new Picasso.Builder(context);
         builder.downloader(new OkHttp3Downloader(context));
@@ -106,7 +112,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
         return cartItems.size();
     }
 
-    public void setCartItems(ArrayList<CartItem> cartItems) {
+    public void setCartItems(List<CartItem> cartItems) {
         this.cartItems = cartItems;
         notifyDataSetChanged();
     }
@@ -128,6 +134,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
         TextView item_restaurant, item_count, item_cost, item_name;
         FloatingActionButton add, subtract;
         ImageView itemImage;
+
         public ItemViewHolder(@NonNull View itemView) {
             super(itemView);
             item_name = (TextView) itemView.findViewById(R.id.item_name);
@@ -135,10 +142,12 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
             item_count = (TextView) itemView.findViewById(R.id.meal_count);
             item_cost = (TextView) itemView.findViewById(R.id.item_cost);
 
+
             itemImage = (ImageView) itemView.findViewById(R.id.item_image);
 
             add = (FloatingActionButton) itemView.findViewById(R.id.add_floatingActionButton);
             subtract = (FloatingActionButton) itemView.findViewById(R.id.subtract_floatingActionButton);
+
         }
     }
 }

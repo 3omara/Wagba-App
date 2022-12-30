@@ -45,7 +45,11 @@ public class UserRepository {
     public LiveData<User> getUserByID (String userID) { return mUserDao.getUserByID(userID); }
     public LiveData<UserWithCarts> getUserCarts (String userID) { return mUserDao.getUserCarts(userID); }
     public LiveData<CartWithCartItems> getCartItems (long cartID) { return mUserDao.getCartItems(cartID); }
-
+    public LiveData<List<CartWithCartItems>> getAllCartsWithCartItems(String userID){return mUserDao.getAllCartsWithCartItems(userID);}
+    CartWithCartItems getNonLiveCartItems(long cartID) throws ExecutionException, InterruptedException {
+        getNonLiveCartItems task = new getNonLiveCartItems(mUserDao);
+        return task.execute(cartID).get();
+    }
     private static class insertAsyncTask extends AsyncTask<User, Void, Void> {
 
         private UserDao mAsyncTaskDao;
@@ -151,6 +155,20 @@ public class UserRepository {
         protected Void doInBackground(final Cart... params) {
             mAsyncTaskDao.deleteCart(params[0]);
             return null;
+        }
+    }
+
+    private static class getNonLiveCartItems extends AsyncTask<Long, Void, CartWithCartItems> {
+
+        private UserDao mAsyncTaskDao;
+
+        getNonLiveCartItems(UserDao dao) {
+            mAsyncTaskDao = dao;
+        }
+
+        @Override
+        protected CartWithCartItems doInBackground(final Long... params) {
+            return mAsyncTaskDao.getNonLiveCartItems(params[0]);
         }
     }
 

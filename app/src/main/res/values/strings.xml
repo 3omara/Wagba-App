@@ -42,7 +42,7 @@
     <string name="dummy_availability">Available</string>
     <string name="dummy_item_count">5 items</string>
     <string name="dummy_total">350 L.E.</string>
-    <string name="dummy_delivery">50 L.E.</string>
+    <string name="dummy_delivery">10 L.E.</string>
     <string name="dummy_delivery_status">Delivered</string>
     <string name="dummy_pay_status">Paid</string>
     <string name="title_activity_payment">Payment_Activity</string>

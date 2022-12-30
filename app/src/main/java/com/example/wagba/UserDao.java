@@ -45,5 +45,12 @@ public interface UserDao {
     @Query("SELECT * FROM cart_table WHERE cartID=:cartID")
     LiveData<CartWithCartItems> getCartItems(long cartID);
 
+    @Transaction
+    @Query("SELECT * FROM cart_table WHERE cartID=:cartID")
+    CartWithCartItems getNonLiveCartItems(long cartID);
+
+    @Transaction
+    @Query("SELECT * FROM cart_table WHERE userID=:userID")
+    LiveData<List<CartWithCartItems>> getAllCartsWithCartItems(String userID);
 
 }
