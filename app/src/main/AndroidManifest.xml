@@ -15,28 +15,28 @@
         android:theme="@style/Theme.Wagba"
         tools:targetApi="31">
         <activity
-            android:name=".CartActivity"
+            android:name=".androidView.cartActivity.CartActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".HomeActivity"
+            android:name=".androidView.HomeActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".MealsActivity"
+            android:name=".androidView.mealsActivity.MealsActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".androidView.loginActivity.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
