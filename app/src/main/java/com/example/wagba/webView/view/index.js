@@ -86,7 +86,7 @@ function showOrders(data){
         }
         orderStatus.selectedIndex = ord_options.findIndex((option)=>{return option==data[key].deliveryStatus;});
         
-        if(orderStatus.selectedIndex==0){
+        if(orderStatus.selectedIndex==0 || orderStatus.selectedIndex==4){
           orderStatus.disabled = true;
         }else{
           orderStatus.addEventListener("change", function(){
@@ -107,7 +107,6 @@ function showOrders(data){
         orderStatusField.appendChild(orderStatus);
         ord_row.appendChild(orderStatusField);
 
-        
 
         payStatusField = document.createElement("td");
         payStatus = document.createElement("select");

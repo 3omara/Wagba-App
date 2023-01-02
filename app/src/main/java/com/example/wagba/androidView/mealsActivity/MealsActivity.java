@@ -14,7 +14,7 @@ import android.widget.TextView;
 
 import com.example.wagba.R;
 import com.example.wagba.data.room.entities.Cart;
-import com.example.wagba.data.models.MealModel;
+import com.example.wagba.models.MealModel;
 import com.example.wagba.data.room.viewmodel.UserViewModel;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;

@@ -11,7 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.wagba.R;
-import com.example.wagba.data.models.Order;
+import com.example.wagba.models.Order;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;

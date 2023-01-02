@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.wagba.R;
 import com.example.wagba.androidView.mealsActivity.MealsActivity;
-import com.example.wagba.data.models.RestaurantModel;
+import com.example.wagba.models.RestaurantModel;
 import com.squareup.picasso.OkHttp3Downloader;
 import com.squareup.picasso.Picasso;
 

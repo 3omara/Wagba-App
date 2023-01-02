@@ -17,7 +17,7 @@ import com.example.wagba.R;
 import com.example.wagba.data.room.entities.Cart;
 import com.example.wagba.data.room.entities.CartItem;
 import com.example.wagba.data.room.entities.CartWithCartItems;
-import com.example.wagba.data.models.MealModel;
+import com.example.wagba.models.MealModel;
 import com.example.wagba.data.room.viewmodel.UserViewModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.squareup.picasso.OkHttp3Downloader;

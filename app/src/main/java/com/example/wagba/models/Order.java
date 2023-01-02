@@ -1,4 +1,4 @@
-package com.example.wagba.data.models;
+package com.example.wagba.models;
 
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;

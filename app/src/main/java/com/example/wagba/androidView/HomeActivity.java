@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.view.MenuItem;
 
@@ -12,7 +14,7 @@ import com.example.wagba.R;
 import com.example.wagba.androidView.cartFragment.CartFragment;
 import com.example.wagba.androidView.orderHistoryFragment.OrderHistoryFragment;
 import com.example.wagba.androidView.restaurantFragment.RestaurantsFragment;
-import com.example.wagba.data.models.RestaurantModel;
+import com.example.wagba.models.RestaurantModel;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
