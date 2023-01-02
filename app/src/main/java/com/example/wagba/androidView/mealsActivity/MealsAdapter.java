@@ -15,7 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.wagba.R;
 import com.example.wagba.data.room.entities.Cart;
-import com.example.wagba.data.room.repository.CartItem;
+import com.example.wagba.data.room.entities.CartItem;
 import com.example.wagba.data.room.entities.CartWithCartItems;
 import com.example.wagba.data.models.MealModel;
 import com.example.wagba.data.room.viewmodel.UserViewModel;

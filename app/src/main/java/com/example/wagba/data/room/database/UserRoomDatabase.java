@@ -6,7 +6,7 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
-import com.example.wagba.data.room.repository.CartItem;
+import com.example.wagba.data.room.entities.CartItem;
 import com.example.wagba.data.room.entities.User;
 import com.example.wagba.data.room.dao.UserDao;
 import com.example.wagba.data.room.entities.Cart;

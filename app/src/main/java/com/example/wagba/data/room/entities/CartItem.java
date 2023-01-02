@@ -1,4 +1,4 @@
-package com.example.wagba.data.room.repository;
+package com.example.wagba.data.room.entities;
 
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;

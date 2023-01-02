@@ -6,6 +6,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.util.Patterns;
 import android.view.LayoutInflater;
@@ -19,10 +20,14 @@ import android.widget.Toast;
 
 import com.example.wagba.R;
 import com.example.wagba.androidView.HomeActivity;
+import com.example.wagba.data.room.entities.User;
+import com.example.wagba.data.room.viewmodel.UserViewModel;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+
+import java.util.concurrent.ExecutionException;
 
 public class SignInFragment extends Fragment implements View.OnClickListener {
 
@@ -32,6 +37,7 @@ public class SignInFragment extends Fragment implements View.OnClickListener {
     private ProgressBar progressBar;
     private Fragment signUpFragment;
     private FirebaseAuth mAuth;
+    private UserViewModel userViewModel;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -42,6 +48,7 @@ public class SignInFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        userViewModel = new ViewModelProvider(getActivity()).get(UserViewModel.class);
         signIn = (Button) getActivity().findViewById(R.id.signin_button);
         emailET = (EditText) getActivity().findViewById(R.id.signin_email);
         passwordET = (EditText) getActivity().findViewById(R.id.signin_password);
@@ -78,6 +85,19 @@ public class SignInFragment extends Fragment implements View.OnClickListener {
             public void onComplete(@NonNull Task<AuthResult> task) {
 
                 if(task.isSuccessful()){
+                    String userID = mAuth.getCurrentUser().getUid();
+                    User user = null;
+                    try {
+                        user = userViewModel.getUser_NonLive(userID);
+                    } catch (ExecutionException e) {
+                        e.printStackTrace();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    if(user==null){
+                        User oldUser = new User(userID, "Unknown");
+                        userViewModel.insertUser(oldUser);
+                    }
                     progressBar.setVisibility(View.GONE);
                     redirect();
                 }else{

@@ -6,7 +6,7 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
-import com.example.wagba.data.room.repository.CartItem;
+import com.example.wagba.data.room.entities.CartItem;
 import com.example.wagba.data.room.entities.CartWithCartItems;
 import com.example.wagba.data.room.entities.User;
 import com.example.wagba.data.room.repository.UserRepository;
@@ -50,6 +50,8 @@ public class UserViewModel extends AndroidViewModel {
     public LiveData<UserWithCarts> getUserCarts(String userID) { return mRepository.getUserCarts(userID);}
     public LiveData<CartWithCartItems> getCartItems(long cartID) { return mRepository.getCartItems(cartID);}
     public LiveData<List<CartWithCartItems>> getAllCartsWithCartItems(String userID){return mRepository.getAllCartsWithCartItems(userID);}
+
     public CartWithCartItems getNonLiveCartItems(long cartID) throws ExecutionException, InterruptedException {return mRepository.getNonLiveCartItems(cartID);}
     public Cart getCartByName(String userID, String cartName) throws ExecutionException, InterruptedException {return mRepository.getCartByName(userID, cartName);}
+    public User getUser_NonLive(String userID) throws ExecutionException, InterruptedException {return mRepository.getUser_NonLive(userID);}
 }

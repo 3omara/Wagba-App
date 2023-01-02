@@ -17,19 +17,15 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.wagba.R;
 import com.example.wagba.androidView.HomeActivity;
 import com.example.wagba.data.room.entities.Cart;
-import com.example.wagba.data.room.entities.CartWithCartItems;
-import com.example.wagba.data.room.repository.CartItem;
+import com.example.wagba.data.room.entities.CartItem;
 import com.example.wagba.data.room.viewmodel.UserViewModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.squareup.picasso.OkHttp3Downloader;
 import com.squareup.picasso.Picasso;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.ExecutionException;
 
 public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder> {
 

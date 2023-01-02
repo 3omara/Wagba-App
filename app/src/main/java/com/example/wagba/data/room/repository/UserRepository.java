@@ -6,6 +6,7 @@ import android.util.Log;
 
 import androidx.lifecycle.LiveData;
 
+import com.example.wagba.data.room.entities.CartItem;
 import com.example.wagba.data.room.entities.CartWithCartItems;
 import com.example.wagba.data.room.entities.User;
 import com.example.wagba.data.room.dao.UserDao;
@@ -53,6 +54,11 @@ public class UserRepository {
     public LiveData<UserWithCarts> getUserCarts (String userID) { return mUserDao.getUserCarts(userID); }
     public LiveData<CartWithCartItems> getCartItems (long cartID) { return mUserDao.getCartItems(cartID); }
     public LiveData<List<CartWithCartItems>> getAllCartsWithCartItems(String userID){return mUserDao.getAllCartsWithCartItems(userID);}
+
+    public User getUser_NonLive(String userID) throws ExecutionException, InterruptedException {
+        getAsyncUser task = new getAsyncUser(mUserDao);
+        return task.execute(userID).get();
+    }
     public CartWithCartItems getNonLiveCartItems(long cartID) throws ExecutionException, InterruptedException {
         getNonLiveCartItems task = new getNonLiveCartItems(mUserDao);
         return task.execute(cartID).get();
@@ -62,6 +68,20 @@ public class UserRepository {
         return task.execute(userID, cartName).get();
     }
 
+    private static class getAsyncUser extends AsyncTask<String, Void, User> {
+
+        private UserDao mAsyncTaskDao;
+
+        getAsyncUser(UserDao dao) {
+            mAsyncTaskDao = dao;
+        }
+
+        @Override
+        protected User doInBackground(final String... params) {
+            mAsyncTaskDao.getUser_NonLive(params[0]);
+            return null;
+        }
+    }
 
     private static class insertAsyncTask extends AsyncTask<User, Void, Void> {
 

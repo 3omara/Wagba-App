@@ -8,7 +8,7 @@ import androidx.room.Query;
 import androidx.room.Transaction;
 import androidx.room.Update;
 
-import com.example.wagba.data.room.repository.CartItem;
+import com.example.wagba.data.room.entities.CartItem;
 import com.example.wagba.data.room.entities.CartWithCartItems;
 import com.example.wagba.data.room.entities.User;
 import com.example.wagba.data.room.entities.UserWithCarts;
@@ -42,6 +42,10 @@ public interface UserDao {
     @Transaction
     @Query("SELECT * FROM user_table WHERE userID LIKE :userID")
     LiveData<User> getUserByID(String userID);
+
+    @Transaction
+    @Query("SELECT * FROM user_table WHERE userID LIKE :userID")
+    User getUser_NonLive(String userID);
 
     @Transaction
     @Query("SELECT * FROM user_table WHERE userID=:userID")

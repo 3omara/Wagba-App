@@ -96,7 +96,6 @@ public class SignUpFragment extends Fragment implements View.OnClickListener {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 String userID = mAuth.getCurrentUser().getUid();
-                Log.i("TAG", "onComplete: "+userID);
                 User user = new User(userID, username);
                 userViewModel.insertUser(user);
 
