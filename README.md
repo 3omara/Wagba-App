@@ -3,6 +3,11 @@
 A food delivery mobile application aimed at my college campus in Ain Shams University. The application has a database of restaurants located around the college campus. The meals are still dummy and not representative of the corresponding restaurants, however. I have also hosted a simple website on Firebase to manage orders.
 
 
+## Demo:
+
+...
+
+
 ## Development Stack:
 
 - The mobile application frontend was mainly developed using Java
