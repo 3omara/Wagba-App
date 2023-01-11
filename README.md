@@ -10,17 +10,17 @@ A food delivery mobile application aimed at my college campus in Ain Shams Unive
 
 ## Development Stack:
 
-- The mobile application frontend was mainly developed using Java
-- XML was used for the user interface
+- Java was used for frontend development.
+- XML was used for the user interface.
 - Firebase was used for user authentication.
-- Firebase Realtime Database was used for the backend database. (holds restaurant, meal, and order information)
-- Room Database was used as a local database. (holds cart information)
+- Firebase Realtime Database was used for the backend database (holds restaurant, meal, and order information).
+- Room Database was used as a local database (holds cart information).
 - JS and HTML used for the order management website that was later hosted on Firebase.
 
 
 ## Functionality:
 
-- Each restaurant should has its own cart.
+- Each meal should be added to a cart specific to its own restaurant.
 - Upon adding a meal, a new cart for the respective restaurant is created automatically if it it did not already exist.
 - Upon removing all meals, the restaurant cart is deleted.
 - Carts are stored locally, so deleting the application should remoe any carts previously created by the user.
