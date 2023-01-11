@@ -31,7 +31,7 @@ A food delivery mobile application aimed at my college campus in Ain Shams Unive
 - payment can either be paid or due. It is assumed that payments are done in cash upon delivery.
 
 
-## Order Management Website Link: https://wagba-73673.web.app/
+## Order Management Website: https://wagba-73673.web.app/
 ![image](https://user-images.githubusercontent.com/61950995/211913533-137f42ee-1f9c-4860-95f9-1cba3b4f009b.png)
 
 
