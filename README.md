@@ -3,11 +3,6 @@
 A food delivery mobile application aimed at my college campus in Ain Shams University. The application has a database of restaurants located around the college campus. The meals are still dummy and not representative of the corresponding restaurants, however. I have also hosted a simple website on Firebase to manage orders.
 
 
-## Demo:
-
-...
-
-
 ## Development Stack:
 
 - Java was used for frontend development.
@@ -31,7 +26,7 @@ A food delivery mobile application aimed at my college campus in Ain Shams Unive
 - Payment status can be set to either paid or due from the website. It is assumed that payments are done in cash upon delivery.
 
 
-## Order Management Website: https://wagba-73673.web.app/
+## Order Management Website: 
 ![image](https://user-images.githubusercontent.com/61950995/211913533-137f42ee-1f9c-4860-95f9-1cba3b4f009b.png)
 
 
